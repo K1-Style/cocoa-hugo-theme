@@ -8,5 +8,5 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 
 {{ template "_internal/opengraph.html" . }}
-<meta property="og:image" content="{{ if .Params.image }}{{ .Site.BaseURL }}{{ .Params.image }}{{ else }}{{ .Site.BaseURL }}{{ .Site.Params.avatar }}{{ end }}" />
+<meta property="og:image" content="{{ if .Params.image }}{{ .Site.BaseURL }}{{ .Params.image }}{{ else }}{{ if .Site.Params.gravatar }}https://gravatar.com/avatar/{{ .Site.Params.gravatar }}?s=400{{ else }}{{ .Site.BaseURL }}{{ .Site.Params.avatar }}{{ end }}{{ end }}" />
 {{ with .Site.Params.fb_app_id }}<meta property="fb:app_id" content="{{ . }}">{{ end }}

@@ -43,7 +43,9 @@
 
 <!-- Icon -->
 <link rel="shortcut icon"
-{{ if .Site.Params.faviconfile }}
+{{ if .Site.Params.gravatar }}
+    href="https://gravatar.com/avatar/{{ .Site.Params.gravatar }}"
+{{ else if .Site.Params.faviconfile }}
     href="/{{ .Site.Params.faviconfile }}"
 {{ else }}
     href="/img/favicon.ico"
